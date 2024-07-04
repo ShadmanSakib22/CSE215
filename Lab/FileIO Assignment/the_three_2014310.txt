@@ -1,0 +1,36 @@
+First Name: Timi
+Last Name: Ramsier
+ID: dbabf102-af38-4c10-9aab-bed647dc82c6
+CGPA: 3.11
+Attendance Marks: 1.2
+Quiz1: 9.8
+Quiz2: 15.0
+Quiz3: 5.4
+MidTerm: 20.9
+FinalTerm: 18.5
+Project: 29.3
+
+First Name: Oswell
+Last Name: Chooter
+ID: c7ed7655-0c4c-4745-9473-66f149c6c754
+CGPA: 2.15
+Attendance Marks: 4.3
+Quiz1: 0.2
+Quiz2: 11.4
+Quiz3: 11.6
+MidTerm: 24.7
+FinalTerm: 18.4
+Project: 23.6
+
+First Name: Hershel
+Last Name: Clitherow
+ID: cdf86c06-bfdd-43be-907c-f80af4e4f58e
+CGPA: 2.61
+Attendance Marks: 1.6
+Quiz1: 8.8
+Quiz2: 5.5
+Quiz3: 4.7
+MidTerm: 10.5
+FinalTerm: 16.1
+Project: 2.9
+

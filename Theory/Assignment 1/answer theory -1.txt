@@ -1,0 +1,71 @@
+package com.shadmansakib;
+
+import java.lang.Math;
+
+
+public class Main {
+  
+  public static void main(String[] args) {
+    
+    System.out.println(" Index |     Iterative     |        Recursive");
+    
+    //initialize while loop
+    int n = 0;
+    while (n <= 20) {
+      //call method for recursion
+      System.out.printf("%2d %20.2f %20.2f\n", n, doIteration(n), doRecursion(n));
+      n++;
+    }
+    
+  }
+  
+  public static double doRecursion(int n) {
+    
+    if (n <= 0) {
+      return 0;
+    }
+    if (n == 1) {
+      return 1;
+    }
+    if (n == 2) {
+      return 3;
+    }
+    if ((n > 2) && (n % 2 == 0)) {
+      return Math.sqrt(doRecursion(n - 1)) + Math.pow((doRecursion(n - 2)), (double) 1 / (n - 2));
+    }
+    if ((n > 2) && (n % 2 != 0)) {
+      return Math.pow(doRecursion(n - 1), 1.000001);
+    }
+    
+    return 0;
+  }
+  
+  public static double doIteration(int n) {
+  
+    if (n <= 0) {
+      return 0;
+    }
+    if (n == 1) {
+      return 1;
+    }
+    if (n == 2) {
+      return 3;
+    }
+    
+    while (n >=3) {
+  
+      if  (n % 2 == 0) {
+       //unaware how to do
+      }
+      
+      else {
+        //unaware how to do
+      }
+      
+      n++;
+    }
+  
+    return 0;
+  }
+}
+

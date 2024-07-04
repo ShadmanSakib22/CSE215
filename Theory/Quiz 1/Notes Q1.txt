@@ -1,0 +1,96 @@
+Difference between Pass by value & Pass by reference
+Difference between Primitive Variable and Reference Variable
+Recursion
+How Java is Compiled
+Data Types and Sizes
+Chapter 1-6
+
+Q. A data type: is an attribute of a variable which tells the compiler or interpreter how the programmer intends to use the variable.
+
+p.s Java is statically typed i.e. variables must be declared before use.
+
+Q. Primitive data types:
+   Primitive types are the most basic data types available within the Java language. 
+   They are pre-defined by the programming language. 
+   The size and type of variable values are specified by the program
+   Such types serve only one purpose — contain value of same kind.
+
+   There are 8: boolean , byte , char , short , long , int , float and double.
+
+
+Q. Non-Primitive Data Types: 
+   These data types are not actually defined by the programming language but are created by the programmer. 
+   They are also called “reference variables” or “object references” since they reference a memory location which stores the data
+
+   
+Q. Formal parameter: The parameters received by a function (method).
+   Actual parameter: The parameters passed to a function (method). 
+
+
+Q. Difference between Pass by value & Pass by reference
+   i) when passing variables that are primitive java data types, pass by value is used.
+      when passing variables that are non-primitive java data types, pass by reference is used. example: arrays, objects...
+
+  ii) In pass by value, actual parameters are copied to formal parameters. the parameters store the value in different locations.
+      so even if the formal parameter value is altered inside the method, the actual(orignal) parameter value does not change.
+      
+      In pass by reference, actual parameters and formal parameters share the same memory location.
+      so if formal parameter value is altered, actual parameter is also altered by the same.
+      So pass by reference is basically passing address instead of value.
+
+
+Q. Data Types and Sizes
+
+byte:    •value ranges from -128 to 127
+         •takes 8 bit , 1 byte
+         •default value is 0
+
+short:   •value ranges from -32,768 to 32,767.
+         •takes 16 bit , 1 byte
+         •default value is 0  
+
+int:     •value ranges from -2^31 to 2^31 -1
+         •takes 32 bit , 2 byte
+         •deafault value is 0
+
+long:    •value ranges from -2^63 to 2^63 -1
+         •takes 64 bit , 8 byte
+         •default value is 0
+ 
+float:   •value ranges from 3.4E +/- 38 (7 digits)
+         •takes 32 bit , 4 byte
+         •deafault value is 0.0f
+
+double:  •value ranges from 1.8E +/- 308 (15 digits)
+         •takes 64 bit , 8 byte
+         •deafault value is 0.0d
+
+char:    •value ranges from 0 to 65535
+         •takes 16 bit , 2 byte
+         •default value is 
+
+boolean: •value can be true or false
+         •size depend on JVM (1 bit)
+         •default value is false
+
+
+Q. Difference between Primitive Variable and Reference Variable
+   The basic difference is that primitive variables store the actual values, 
+   whereas reference variables store the addresses of the objects they refer to.
+   Primitive type always has a value, it can never be null but reference type can be null, which denotes the absence of value.
+
+p.s Reference variables are not pointers but a handle to the object which is created in heap memory.
+The heap is a memory used by programming languages to store global variables. By default, all global variable are stored in heap memory space
+
+
+Q. How Java is Compiled
+For the instructions written in java code to be executed, the code has to be first translated to machine language i.e conversion to binary form. 
+To translate this source code into machine language, java uses a compiler.
+In compilation, the compiler reads the entire source code and then translates it to a machine-code file. This machine-code file is then
+executed by an executor.
+
+
+Q. Recursion
+A function in Java can call itself. Such calling of function by itself is called recursion.
+//factorial(n) = n*factorial(n-1)                 [n >= 1]
+

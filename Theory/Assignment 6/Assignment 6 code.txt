@@ -1,0 +1,55 @@
+package com.shadmansakib;
+
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    
+    String path = "C:\\Users\\Toast\\IdeaProjects\\Assignment 6\\Data.txt";
+    
+    ArrayList<Person> person = new ArrayList<>();
+    try (
+      Scanner input = new Scanner(new File(path))
+    ) {
+      while (input.hasNext()) {
+        //PassportNumber, FirstName, LastName, NID, DoB (format: 01-Jan-1955)
+        person.add(new Person(
+          input.next(), input.next(), input.next(), input.next(),
+          new SimpleDateFormat("dd-MMM-y").parse(input.next())));
+        
+      }
+    } catch (FileNotFoundException | ParseException e) {
+      e.printStackTrace();
+    }
+    
+    //prints the arraylist with toString format
+    for (Person str : person) {
+      System.out.println(str.toString());
+    }
+    System.out.println();
+    
+  //Mapping NID to Passports:
+    //Creating Arraylist of Passport Numbers
+    ArrayList<String> passport = new ArrayList<>();
+    for (Person str : person) {
+      passport.add(str.getPassportNumber());
+    }
+  
+    Map<String, ArrayList<String>> map = new TreeMap<>();
+    for (int i=0; i<person.size(); i++) {
+      ArrayList<String> l = map.computeIfAbsent(person.get(i).getNID(), k -> new ArrayList<String>());
+      l.add(passport.get(i));
+    }
+    
+    for (String i : map.keySet()) {
+      System.out.println("NID (key): " + i + " | PassportNo. (value): " + map.get(i));
+    }
+  }
+}
+
+
+
+

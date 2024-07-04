@@ -1,0 +1,89 @@
+//Name: Shadman Sakib - ID: 2014310642 - CSE 215L.12 - CA1 - Spring 2021
+package com.shadmansakib;
+
+import java.util.Scanner;
+
+public class CA1_Task4_2014310 {
+  public static void main(String[] args) {
+    String string;
+    
+    Scanner input = new Scanner(System.in);
+    System.out.println("Using Recursive Method:");
+    for (int i = 1; i <= 3; i++) {
+      System.out.printf("Enter String %d: ", i);
+      string = input.nextLine();
+      System.out.printf("%s = %s\n", string, recursiveAddPaddingCharacter(string));
+    }
+    
+    System.out.println();
+    System.out.println("Using Iterative Method:");
+    for (int i = 1; i <= 3; i++) {
+      System.out.printf("Enter String %d: ", i);
+      string = input.nextLine();
+      System.out.printf("%s = %s\n", string, iterativeAddPaddingCharacter(string));
+    }
+    
+  }
+  
+  public static String recursiveAddPaddingCharacter(String string) {
+    
+    //stop recursion
+    if (string.length() < 1) {
+      return string;
+    }
+    
+    //Assigning ch with first value of string (later substring)
+    char ch = string.charAt(0);
+    
+    //working on Vowels
+    if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ||
+          ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+      
+      //Surrounding 'ch' with '*' and passing next chars in string to recursion method.
+      return "*" + string.charAt(0) + "*" + recursiveAddPaddingCharacter(string.substring(1));
+    }
+    
+    //working on Consonants
+    if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+      
+      //Surrounding 'ch' with '#' and passing next chars in string to recursion method.
+      return "#" + string.charAt(0) + "#" + recursiveAddPaddingCharacter(string.substring(1));
+    }
+    
+    //working on Digits
+    if (ch >= '0' && ch <= '9') {
+      
+      //Surrounding 'ch' with '$' and passing next chars in string to recursion method.
+      return "$" + string.charAt(0) + "$" + recursiveAddPaddingCharacter(string.substring(1));
+    }
+    
+    //passing next chars in string to recursion method
+    return ch + recursiveAddPaddingCharacter(string.substring(1));
+  }
+  
+  public static String iterativeAddPaddingCharacter(String string) {
+    
+    StringBuilder sb = new StringBuilder();
+    
+    for (int i = 0; i < string.length(); i++) {
+      char ch = string.charAt(i);      
+      if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ||
+            ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        sb.append("*").append(ch).append("*");
+      }
+      else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+        sb.append("#").append(ch).append("#");
+      }
+      else if (ch >= '0' && ch <= '9') {
+        sb.append("$").append(ch).append("$");
+      }
+      else {
+        sb.append(ch);
+      }
+    }
+    string = sb.toString();
+    
+    return string;
+  }
+}
+

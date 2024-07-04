@@ -1,0 +1,32 @@
+package com.shadmansakib;
+import java.util.Scanner;
+
+public class LabAssignment5_2014310 {
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter Coefficient 'a': ");
+        double a = input.nextDouble();
+        
+        System.out.print("Enter Coefficient 'b': ");
+        double b = input.nextDouble();
+        
+        System.out.print("Enter Coefficient 'c': ");
+        double c = input.nextDouble();
+        
+        QuadraticEquation_2014310 equate = new QuadraticEquation_2014310(a, b, c);
+        System.out.println();
+        equate.evaluateDiscriminant();
+        
+        if(equate.getRoot1()== -999.999 || equate.getRoot2() == -999.999){
+            System.out.println("Not possible to calculate solutions since discriminant is negative.");
+        } else {
+            System.out.println(equate.getRoot1());
+            System.out.println(equate.getRoot2());
+        }
+
+        System.out.println();
+        System.out.println(equate.toString());
+    }
+}

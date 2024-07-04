@@ -1,0 +1,63 @@
+package com.shadmansakib;
+
+import java.lang.Math;
+import java.util.Formatter;
+
+public class QuadraticEquation_2014310 {
+
+  private double a;
+  private double b;
+  private double c;
+
+  public QuadraticEquation_2014310(double a, double b, double c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+
+  private double getDiscriminant() {
+    return Math.pow(this.b, 2) - (4 * this.a * this.c);
+  }
+
+  public void evaluateDiscriminant() {
+    double discriminant = getDiscriminant();
+    if (discriminant > 0) {
+      System.out.println("Two distinct solutions");
+    } else if (discriminant == 0) {
+      System.out.println("One unique solution");
+    } else {
+      System.out.println("No real solutions");
+    }
+  }
+
+  public double getRoot1() {
+    double discriminant = getDiscriminant();
+    if (discriminant < 0) {
+      return -999.999; //arbitrary value
+    }
+    return (Math.sqrt(discriminant) - this.b) / (this.a * 2);
+  }
+
+  public double getRoot2() {
+    double discriminant = getDiscriminant();
+    if (discriminant < 0) {
+      return -999.999; //arbitrary value
+    }
+    return (-Math.sqrt(discriminant) - this.b) / (this.a * 2);
+  }
+
+  public String toString() {
+
+    Formatter formatter = new Formatter(new StringBuilder());
+    formatter.format("%-12s| %-12s\n","Coefficient", "Value");
+    formatter.format("-------------------------------\n");
+    formatter.format("%-12s| %.3f\n", "a", this.a);
+    formatter.format("-------------------------------\n");
+    formatter.format("%-12s| %.3f\n", "b", this.b);
+    formatter.format("-------------------------------\n");
+    formatter.format("%-12s| %.3f\n", "c", this.c);
+    formatter.format("-------------------------------\n");
+
+    return formatter.toString();
+  }
+}

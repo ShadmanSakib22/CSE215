@@ -1,0 +1,94 @@
+//Name: Shadman Sakib - ID: 2014310642 - CSE 215L.12
+//Code for nth term in a given series using recursion and iteration
+
+package com.shadmansakib;
+import java.util.Scanner;
+import java.lang.Math;
+
+
+public class Quiz1Task3_2014310 {
+  public static void main(String[] args) {
+    
+    int number;
+    Scanner input = new Scanner(System.in);
+    
+  //Recursion
+    System.out.println("Using recursive method:");
+  
+    System.out.print("Enter n: ");
+    number = input.nextInt();
+    
+    System.out.printf("%dth NotFibonacci number is %d\n", number, recursiveNthNotFibonacci(number));
+    
+    
+  //Iteration
+    System.out.println(" ");
+    System.out.println("Using iterative method:");
+    
+    System.out.print("Enter n: ");
+    number = input.nextInt();
+    
+    System.out.printf("%dth NotFibonacci number is %d\n", number, iterativeNthNotFibonacci(number));
+    
+  }
+  
+  
+  public static int recursiveNthNotFibonacci(int number) {
+    
+    if (number == 1) {
+      return 1;
+    }
+    if (number == 2) {
+      return 5;
+    }
+    if (number == 3) {
+      return 10;
+    }
+    
+    if (number >= 4) {
+  
+      int a= recursiveNthNotFibonacci(number - 1)  + recursiveNthNotFibonacci(number - 2) +
+               recursiveNthNotFibonacci(number - 3);
+      
+      a = (int) Math.round( (double) a/2);
+      return a;
+  
+    }
+    
+    return 0;
+  }
+  
+  
+  public static int iterativeNthNotFibonacci(int number){
+  
+    int num1= 1;
+    int num2= 5;
+    int num3= 10;
+    
+    if (number == 1) {
+      return num1;
+    }
+    if (number == 2) {
+      return num2;
+    }
+    if (number == 3) {
+      return num3;
+    }
+  
+    if (number >= 4) {
+      int func = 1;
+      
+      for(int i=4; i<=number; i++)
+      {
+        func = (int) Math.round(((double)(num1 + num2 + num3)/2));
+        num1 = num2;
+        num2 = num3;
+        num3 = func;
+        
+      }
+      return func;
+    }
+    
+    return 0;
+  }
+}

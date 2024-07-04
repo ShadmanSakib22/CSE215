@@ -1,0 +1,154 @@
+//Name: Shadman Sakib - ID: 2014310642 - CSE 215L.12 - CA1 - Spring 2021
+package com.shadmansakib;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class CA1_Task1_2014310 {
+  public static void main(String[] args) {
+    
+    int numberOfAlphabets;
+    int numberOfDigits;
+    int lengthOfPassword;
+    boolean useAlphabets;
+    boolean useDigits;
+    Scanner input = new Scanner(System.in);
+    
+    //method 1:
+    System.out.print("Should use alphabets? ");
+    useAlphabets = input.nextBoolean();
+    System.out.print("Should use digits? ");
+    useDigits = input.nextBoolean();
+    System.out.printf("Random Character Chosen: %c\n\n", getRandomCharacter(useAlphabets, useDigits));
+    
+    //method 2:
+    System.out.print("Should use alphabets? ");
+    useAlphabets = input.nextBoolean();
+    System.out.print("Should use digits? ");
+    useDigits = input.nextBoolean();
+    System.out.printf("The randomly generated password: %s\n\n", generatePassword(useAlphabets, useDigits));
+  
+    //method 3:
+    System.out.print("Should use alphabets? ");
+    useAlphabets = input.nextBoolean();
+    System.out.print("Should use digits? ");
+    useDigits = input.nextBoolean();
+    System.out.print("Number of alphabets: ");
+    numberOfAlphabets = input.nextInt();
+    System.out.printf("The randomly generated password: %s\n\n",
+      generatePassword(useAlphabets, useDigits, numberOfAlphabets));
+  
+    //method 4:
+    System.out.print("Should use alphabets? ");
+    useAlphabets = input.nextBoolean();
+    System.out.print("Should use digits? ");
+    useDigits = input.nextBoolean();
+    System.out.print("Number of alphabets: ");
+    numberOfAlphabets = input.nextInt();
+    System.out.print("Number of Digits: ");
+    numberOfDigits = input.nextInt();
+    System.out.printf("The randomly generated password: %s\n\n",
+      generatePassword(useAlphabets, useDigits, numberOfAlphabets, numberOfDigits));
+  
+    //method 5:
+    System.out.print("Should use alphabets? ");
+    useAlphabets = input.nextBoolean();
+    System.out.print("Should use digits? ");
+    useDigits = input.nextBoolean();
+    System.out.print("Length of password: ");
+    lengthOfPassword = input.nextInt();
+    if(lengthOfPassword%2 !=0) lengthOfPassword += 1;
+    lengthOfPassword = lengthOfPassword/2;
+    System.out.printf("The randomly generated password: %s\n\n",
+      generatePassword(lengthOfPassword, useAlphabets, useDigits));
+    
+  }
+  
+  //method1
+  public static char getRandomCharacter(boolean useAlphabets, boolean useDigits) {
+    String character = "";
+    Random random = new Random();
+    
+    if (useAlphabets && !useDigits) {
+      character = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (!useAlphabets && useDigits) {
+      character = "0123456789";
+    }
+    if (useAlphabets && useDigits) {
+      character = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    }
+    
+    return character.charAt(random.nextInt(character.length()));
+  }
+  
+  //method2
+  public static String generatePassword(boolean useAlphabets, boolean useDigits) {
+
+    char[] alphabets = new char[10]; //need 10 alphabets
+    char[] digits = new char[5]; //need 5 digits
+    return generate(alphabets,digits,useAlphabets,useDigits);
+  }
+  
+  //method3
+  public static String generatePassword(boolean useAlphabets, boolean useDigits, int numberOfAlphabets){
+
+    char[] alphabets = new char[numberOfAlphabets];
+    char[] digits = new char[10]; //need 10 digits
+    return generate(alphabets,digits,useAlphabets,useDigits);
+  }
+
+  //method4
+  public static String generatePassword(boolean useAlphabets, boolean useDigits,
+                                        int numberOfAlphabets, int numberOfDigits){
+    char[] alphabets = new char[numberOfAlphabets];
+    char[] digits = new char[numberOfDigits];
+    return generate(alphabets,digits,useAlphabets,useDigits);
+  }
+  
+  //method5
+  public static String generatePassword(int lengthOfPassword, boolean useAlphabets, boolean useDigits){
+    char[] alphabets = new char[lengthOfPassword];
+    char[] digits = new char[lengthOfPassword];
+    return generate(alphabets,digits,useAlphabets,useDigits);
+  }
+
+  //common method between method 2 - method 5
+  public static String generate(char[]alphabets, char[]digits, boolean useAlphabets, boolean useDigits) {
+      String digitsList = "0123456789";
+      String alphabetsList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      char[] alphaDigits = new char[alphabets.length + digits.length];
+      Random random = new Random();
+    
+      for (int i = 0; i < alphabets.length; i++) {
+        alphabets[i] = alphabetsList.charAt(random.nextInt(alphabetsList.length()));
+      }
+      for (int i = 0; i < digits.length; i++) {
+        digits[i] = digitsList.charAt(random.nextInt(digitsList.length()));
+      }
+    
+      //merging randomly generated digit and alphabet array and saving to alphaDigits
+      System.arraycopy(alphabets, 0, alphaDigits, 0, alphabets.length);
+      System.arraycopy(digits, 0, alphaDigits, alphabets.length, digits.length);
+    
+      //shuffling array elements of alphaDigits
+      for (int i = 0; i < alphaDigits.length; i++) {
+        int index = random.nextInt(alphaDigits.length); //chooses random index to swap
+        char temp = alphaDigits[index];
+        alphaDigits[index] = alphaDigits[i];
+        alphaDigits[i] = temp;
+      }
+    
+      if (useAlphabets && !useDigits) {
+        return String.valueOf(alphabets);
+      }
+      if (!useAlphabets && useDigits) {
+        return String.valueOf(digits);
+      }
+      if (useAlphabets && useDigits) {
+        return String.valueOf(alphaDigits);
+      }
+      return "Error! Both parameters can't be false!";
+    }
+}
+  

@@ -1,0 +1,50 @@
+Q. Define array: Array is a data structure that represents a collection of the same types of data.
+                In Java, an array stores either primitive values (int, char, ...) or references (a.k.a pointers) to objects.
+
+Q. How array works:
+int[] marks;         //Declaration -- declaring array with name marks -- marks becomes a reference variable.
+marks = new int[5];   //Memory allocation -- assigning size of array to be 5
+int[] marks = new int[5]; //Declaration + Memory allocation -- in one step
+int[] marks = {100,70,80,71,98} // Declare + Initialize! -- creates array in one step --shorthand notation.
+Array indices start from 0 and go till (n-1) where n is the size of the array.
+
+Q. Shorthand notation: you have to declare, create, and initialize the array all in one statement. Splitting it would cause a syntax error.
+
+Q. Arrays have a length property which gives the length of the array: arrName.length
+
+Q. Display array with predefined method: System.out.println(Arrays.toString(arrName));
+                                        //use for loop and printf to display manually
+
+Q. In java we don't actually have 2D arrays. A 2-dimension array is just an array of 1-dimension arrays.
+
+Q. Ragged Array: Each row in a two-dimensional array is itself an array. So,
+                 the rows can have different lengths. Such an array is known as a ragged array.
+
+Q. When an array is created, its elements are assigned the default value of:
+   -- 0 for the numeric primitive data types,
+   -- '\u0000' for char types, and
+   -- false for boolean types.
+
+Q. Heap Memory: In programming languages, the heap memory is a space where global variables are stored(by default). 
+                The heap space stores all objects that are created in the application, and these objects can be accessed throughout the application.
+
+Q. Reference variables: In java, reference variables are variables that points to the objects they refer to. 
+                        In simple terms, reference variable hold addresses of objects they refer to.
+                        However, they are not pointers but a handle to the object which is created in heap memory.
+                        Due to this, when the value of an object pointed by a reference variable is changed anywhere in the application, 
+                        the value given by the reference variable is also changed throughout the application.
+                        Since reference variables don't store any values, they have null size.
+
+
+Q. How array is stored in java:
+Arrays are objects in java. So they are stored in the same way. 
+When the 'new' keyword is used, memory space is allocated in the heap for objects to be stored, 
+and a reference is returned to the reference variable declared (array name).
+The reference variable is stored in the stack memory.
+Different elements of the array are stored as different objects in the heap space.
+Calling particular reference such as arr[0] will direct to the first element stored as object in the heap space.
+
+
+
+
+

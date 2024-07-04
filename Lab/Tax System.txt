@@ -1,0 +1,84 @@
+//Name: Shadman Sakib - ID: 2014310642 - CSE 215L.12
+//Code for payable Tax
+
+package com.shadmansakib;
+import java.util.Scanner;
+
+public class Quiz1Task2_2014310 {
+  public static void main(String[] args) {
+    
+    long taxableIncome;
+    Scanner input = new Scanner(System.in);
+  
+    System.out.println("--Tax Structure--");
+  
+    System.out.print("Enter your income: ");
+    taxableIncome = input.nextLong();
+    
+    //year 1
+    System.out.printf("For taxable income BDT. %2d x1 the payable tax is BDT. %2.2f y1\n"
+                       ,taxableIncome, incomeTaxCalculator(taxableIncome));
+    //year 2
+    System.out.printf("For taxable income BDT. %2d x2 the payable tax is BDT. %2.2f y2\n"
+                       ,taxableIncome, incomeTaxCalculator(taxableIncome)*2);
+    //year 2
+    System.out.printf("For taxable income BDT. %2d x3 the payable tax is BDT. %2.2f y3\n"
+                       ,taxableIncome, incomeTaxCalculator(taxableIncome)*3);
+    
+    
+  }
+  
+  public static double incomeTaxCalculator(long taxableIncome) {
+  
+    long y1;
+  
+    if (taxableIncome <= 250000) {
+      //calculate payable tax in y1
+      y1 = 0;
+    
+      return y1;
+    }
+    
+    
+    if (taxableIncome <= 400000) {
+      //calculate payable tax in y1
+      y1 = (long) (taxableIncome * (double)10/100);
+      
+      return y1;
+    }
+  
+    if (taxableIncome <= 500000) {
+      //calculate payable tax in y1
+      y1 = (long) (400000 * (double) 10/100) + (long) (taxableIncome * (double)15/100);
+      
+      return y1;
+    }
+  
+    if (taxableIncome <= 600000) {
+      //calculate payable tax in y1
+      y1 = (long) (400000 * (double) 10/100) + (long) (500000 * (double)15/100) +
+             (long) (taxableIncome * (double)20/100);
+      
+      return y1;
+    }
+  
+    if (taxableIncome <= 3000000) {
+      //calculate payable tax in y1
+      y1 = (long) (400000 * (double) 10/100) + (long) (500000 * (double)15/100) +
+             (long) (600000 * (double)20/100) + (long) (taxableIncome * (double)25/100);
+    
+      return y1;
+    }
+  
+    if (taxableIncome > 3000000) {
+      //calculate payable tax in y1
+      y1 = (long) (400000 * (double) 10/100) + (long) (500000 * (double)15/100) +
+             (long) (600000 * (double)20/100) + (long) (3000000 * (double)25/100) +
+             (long) (taxableIncome * (double)30/100) ;
+    
+      return y1;
+    }
+    
+    return 0;
+  }
+}

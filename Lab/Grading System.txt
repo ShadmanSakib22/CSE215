@@ -1,0 +1,82 @@
+//Name: Shadman Sakib - ID: 2014310642 - CSE 215L.12
+//Code for a Grading System
+
+package com.shadmansakib;
+
+import java.util.Scanner;
+
+public class Quiz1Task1_2014310 {
+  public static void main(String[] args) {
+    
+    System.out.println("Program Started Successfully");
+    
+    takeMark();
+    
+  }
+  
+  public static void takeMark() {
+    
+    int mark;
+    Scanner input = new Scanner(System.in);
+    
+    System.out.print("Please enter the mark: ");
+    mark = input.nextInt();
+    
+    doGrading(mark);
+  }
+  
+  public static void doGrading(int mark) {
+    
+    if ( mark != -42 && mark <0 || mark>100){
+      System.out.println("Invalid mark");
+      takeMark();
+    }
+    
+    if (mark >= 97) {
+      System.out.println("Grade is: A++");
+      takeMark();
+    }
+    
+    if (mark >= 85) {
+      System.out.println("Grade is: A+");
+      takeMark();
+    }
+    
+    if (mark >= 80 && mark < 85) {
+      System.out.println("Grade is: A");
+      takeMark();
+    }
+    
+    if (mark >= 70 && mark < 80) {
+      System.out.println("Grade is: B");
+      takeMark();
+    }
+    
+    if (mark > 60 && mark < 70) {
+      System.out.println("Grade is: C");
+      takeMark();
+    }
+    
+    if (mark == 60) {
+      System.out.println("Grade is: D");
+      takeMark();
+    }
+    
+    if (mark < 60 && mark > 30) {
+      System.out.println("Grade is: F");
+      takeMark();
+    }
+    
+    if (mark <= 30 && mark != -42) {
+      System.out.println("Grade is: N");
+      takeMark();
+    }
+    
+    if (mark == -42) {
+      System.out.println("Exiting the program");
+      System.exit(0);
+    }
+    
+  }
+}
+

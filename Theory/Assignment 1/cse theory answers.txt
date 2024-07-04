@@ -1,0 +1,19 @@
+Q.2 Answer:
+
+Java is a high-level language. i.e it is a language that was created to simplify computer programming. It is english-like and thus, easy to grasp for us humans. 
+But Computers are not able to read this language. 
+For the instructions written in java code to be executed, the code has to be first translated to machine language i.e conversion to binary form. 
+
+A program written in java code is called the source program or source code. 
+To translate this source code into machine language an interpretor or compiler is necessary.
+
+Interpretor and compiler are both programming tools used for translation of high-level langauages into machine language. 
+They are able to read and translate source code into binary output, and then execute it.
+
+Interpretation and compilation though similar have differences to each other.
+
+In interpretation, the interpreter reads one statement from the source code at a time, and translates it to machine code immediately.
+It proceeds to execute the code right after the translation of a single statement. 
+
+In compilation, the compiler reads the entire source code and then translates it to a machine-code file. This machine-code file is then
+executed by a executor.

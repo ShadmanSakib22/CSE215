@@ -1,0 +1,116 @@
+package com.shadmansakib;
+
+import java.lang.Math;
+
+public class CA1_Task2_2014310 {
+  
+  enum months {
+    January("Monthly salary for January: BDT"),
+    February("Monthly salary for February: BDT"),
+    March("Monthly salary for March: BDT"),
+    April("Monthly salary for April: BDT"),
+    May("Monthly salary for May: BDT"),
+    June("Monthly salary for June: BDT"),
+    July("Monthly salary for July: BDT"),
+    August("Monthly salary for August: BDT"),
+    September("Monthly salary for September: BDT"),
+    October("Monthly salary for October: BDT"),
+    November("Monthly salary for November: BDT"),
+    December("Monthly salary for December: BDT");
+    
+    //to assign the enum with values of String data type
+    String text;
+    
+    months(String text) {
+      this.text = text;
+    }
+    
+    public String getText() {
+      return this.text;
+    }
+    
+  }
+  
+  public static void main(String[] args) {
+    System.out.println("Beginning Simulation - Yearly salary of an employee for the 10 years ahead: \n");
+    
+    double[] Total = new double[10]; //will store sum of annual salaries
+    
+    //use while loop to call it 10 times
+    int i = 1;
+    while (i < 11) {
+      
+      int[] Profit = new int[12];        //contains profits of months in a year
+      double[] Salary = new double[12];   //contains salaries of months in a year
+      {//while loop to populate a profit array for a single year
+        int j = 0;
+        while (j < 12) {
+          Profit[j] = (int) ((Math.random() * (50000 - 2500)) + 2500); //min 2500 & max 50000
+          Salary[j] = calculateSalary(Profit[j]);
+          j++;
+        }
+      }
+      
+      System.out.printf("Profit for January of Year %d: BDT %d\n", i, Profit[0]);
+      System.out.printf("%s %.0f\n", months.January.getText(), Salary[0]);
+      
+      System.out.printf("Profit for February of Year %d: BDT %d\n", i, Profit[1]);
+      System.out.printf("%s %.0f\n", months.February.getText(), Salary[1]);
+      
+      System.out.printf("Profit for March of Year %d: BDT %d\n", i, Profit[2]);
+      System.out.printf("%s %.0f\n", months.March.getText(), Salary[2]);
+      
+      System.out.printf("Profit for April of Year %d: BDT %d\n", i, Profit[3]);
+      System.out.printf("%s %.0f\n", months.April.getText(), Salary[3]);
+      
+      System.out.printf("Profit for May of Year %d: BDT %d\n", i, Profit[4]);
+      System.out.printf("%s %.0f\n", months.May.getText(), Salary[4]);
+      
+      System.out.printf("Profit for June of Year %d: BDT %d\n", i, Profit[5]);
+      System.out.printf("%s %.0f\n", months.June.getText(), Salary[5]);
+      
+      System.out.printf("Profit for July of Year %d: BDT %d\n", i, Profit[6]);
+      System.out.printf("%s %.0f\n", months.July.getText(), Salary[6]);
+      
+      System.out.printf("Profit for August of Year %d: BDT %d\n", i, Profit[7]);
+      System.out.printf("%s %.0f\n", months.August.getText(), Salary[7]);
+      
+      System.out.printf("Profit for September of Year %d: BDT %d\n", i, Profit[8]);
+      System.out.printf("%s %.0f\n", months.September.getText(), Salary[8]);
+      
+      System.out.printf("Profit for October of Year %d: BDT %d\n", i, Profit[9]);
+      System.out.printf("%s %.0f\n", months.October.getText(), Salary[9]);
+      
+      System.out.printf("Profit for November of Year %d: BDT %d\n", i, Profit[10]);
+      System.out.printf("%s %.0f\n", months.November.getText(), Salary[10]);
+      
+      System.out.printf("Profit for December of Year %d: BDT %d\n", i, Profit[11]);
+      System.out.printf("%s %.0f\n\n", months.December.getText(), Salary[11]);
+      
+      double sum = 0;
+      int k = 0;
+      while (k < 12) {
+        sum = sum + Salary[k];
+        k++;
+      }
+      System.out.printf("Annual Salary for Year %d: BDT %.0f\n\n\n", i, sum);
+      Total[i - 1] = sum;
+      i++;
+    }
+    
+    double sum = 0;
+    int k = 0;
+    while (k < 10) {
+      sum = sum + Total[k];
+      k++;
+    }
+    System.out.printf("Total earnings over 10 years: BDT %.0f\n", sum);
+    
+  }
+  
+  //calculates and returns salary with a rate of 20% of the profit
+  public static double calculateSalary(int Profit) {
+    double twentyPercent = ((double) 20 / 100) * Profit;
+    return 25000 + twentyPercent; //base salary 25000
+  }
+}

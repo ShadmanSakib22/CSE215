@@ -1,0 +1,33 @@
+//Name: Shadman Sakib - ID: 2014310642 - CSE 215L.12 - CA1 - Spring 2021
+package com.shadmansakib;
+import java.lang.Math;
+
+public class CA1_Task3_2014310 {
+  
+  public static void main(String[] args) {
+    int numberOfSides;
+    double sideLength;
+    int[] n = new int[50];
+    double[] s = new double[50];
+  
+    for (int i = 0; i < 50; i++) {
+      //populating n array
+      numberOfSides = (int) ((Math.random() * (40 - 2)) + 2); //(2 ≤ n ≤ 40)
+      n[i] = numberOfSides;
+      
+      //populating s array
+      sideLength = ((Math.random() * (100 - 10)) + 10); //(10.0 ≤ s ≤ 100.0)
+      s[i] = sideLength;
+      
+      //displaying and calling method
+      System.out.printf("Area of a polygon with %d sides and a side length of %.1f is %.2f square units.\n"
+        , n[i], s[i], areaOfPolygon(n[i], s[i]) );
+    }
+  }
+  
+  public static double areaOfPolygon(int numberOfSides, double sideLength){
+    double stage1 = numberOfSides * Math.pow( sideLength, 2);
+    double stage2 = 4.0 * Math.tan(Math.PI / (double) numberOfSides);
+    return stage1/stage2;
+  }
+}
